@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React, { ReactNode } from "react";
-import { Container } from "../pages/styles/layout";
+import { Container } from "../styles/layout";
 
 type LayoutPropsType = {
   title: string;

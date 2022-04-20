@@ -8,7 +8,7 @@ import {
   GithubiconUsername,
   Name,
   SocialMedias,
-} from "./styles/main-page";
+} from "../styles/main-page";
 import Image from "next/image";
 import rocketseatLogo from "../../public/images/build.svg";
 import github from "../../public/images/Github.svg";

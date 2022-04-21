@@ -8,25 +8,28 @@ import {
   GithubiconUsername,
   Name,
   SocialMedias,
+  Faixa,
+  Separator,
 } from "../styles/main-page";
 import Image from "next/image";
-import rocketseatLogo from "../../public/images/build.svg";
+import rocketseatSelo from "../../public/images/build.svg";
 import github from "../../public/images/Github.svg";
+import avatar from "../../public/images/avatar-gon.jpg";
+import faixa from "../../public/images/faixa.svg";
 // import { useEffect, useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 import { socialMediaLinksAndLogo } from "../utils/socialMediaLinks";
 
 type User = {
-  avatar_url: string;
-  name: string;
-  login: string;
-  bio: string;
-};
-type Teste = {
-  user: User;
+  user: {
+    avatar_url: string;
+    name: string;
+    login: string;
+    bio: string;
+  };
 };
 
-const Home: NextPage<Teste> = ({ user }) => {
+const Home: NextPage<User> = ({ user }) => {
   /*
     Using fetch()
   */
@@ -57,35 +60,31 @@ const Home: NextPage<Teste> = ({ user }) => {
       title="NLW-Heat-Card"
       description="Meu cartão da NLW - Heat feito com NextJS"
     >
+      <Faixa>{/* <div></div> */}</Faixa>
+      <Separator />
       <Main>
         <Content>
           <ProfileImage>
             <div>
               <Image
-                src={rocketseatLogo}
-                alt="Profile image"
+                src={rocketseatSelo}
+                alt="rocketseat selo"
                 width={80}
                 height={80}
               />
             </div>
             <Image
-              className="avatar"
+              className="githubAvatar"
               src={user.avatar_url}
-              alt="Profile image"
+              alt="rocketseat selo"
               width={160}
               height={186}
             />
           </ProfileImage>
           <Name>{user.name}</Name>
           <GithubiconUsername>
-            <Image src={github} alt="Profile image" width={16} height={16} />
-            <a
-              href="https://github.com/Cast01"
-              target="_blank"
-              rel="noreferrer"
-            >
-              {user.login}
-            </a>
+            <Image src={github} alt="github logo" width={16} height={16} />
+            <a href="https://">{user.login}</a>
           </GithubiconUsername>
           <GithubDescription>{user.bio}</GithubDescription>
           <SocialMedias>
@@ -117,14 +116,11 @@ const Home: NextPage<Teste> = ({ user }) => {
 export async function getServerSideProps() {
   const url = "https://api.github.com/users/Cast01";
 
-  const user = await fetch(url)
-    .then((resp) => resp.json())
-    .then((userData) => userData);
+  // const response = await fetch(url);
+  // const user = await response.json();
 
-  // const user = await axios
-  //   .get(url)
-  //   .then((resp) => resp.data)
-  //   .then((userData) => userData);
+  const response = await axios.get(url);
+  const user = await response.data;
 
   return {
     props: { user }, // will be passed to the page component as props

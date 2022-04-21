@@ -1,8 +1,15 @@
-function teste() {
-  return {
-    name: "gabriel",
-    age: 22,
-  };
-}
+const arr = [
+  {
+    nome: "gabriel",
+    bolo: "morando",
+  },
+  {
+    nome: "pedro",
+    bolo: "kiwi",
+  },
+];
 
-fetch(teste()).then((resp) => console.log(resp));
+for (let x of arr) {
+  const social = "bolo";
+  console.log(x[social]);
+}

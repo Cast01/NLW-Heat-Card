@@ -20,7 +20,10 @@ export default function Layout({
         <meta name="description" content={description} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Container>{children}</Container>
+      <Container>
+        <div className="backgroundDegrade"></div>
+        {children}
+      </Container>
     </>
   );
 }

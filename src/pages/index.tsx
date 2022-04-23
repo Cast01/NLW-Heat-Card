@@ -57,8 +57,8 @@ const Home: NextPage<User> = ({ user }) => {
 
   return (
     <Layout
-      title="NLW-Heat-Card"
-      description="Meu cartão da NLW - Heat feito com NextJS"
+      title="Gabriel Castilho - NLW Heat Card"
+      description="Meu cartão(gabriel castilho) da NLW - Heat feito com NextJS"
     >
       <Faixa>{/* <div></div> */}</Faixa>
       <Separator />
